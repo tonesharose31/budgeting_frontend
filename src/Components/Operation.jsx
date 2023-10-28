@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Operation from "./Operation"; // Update to match your component's name
+import Operation from "../Components/Operation"; // Check the file path and letter casing
 const API = import.meta.env.VITE_BASE_URL;
 
-function Operations() { // Change the component name to start with an uppercase letter
-  const [operations, setOperations] = useState([]);
+function Operations() { 
+  const [operation, setOperation] = useState([]);
 
   useEffect(() => {
     fetch(`${API}/operations`)
       .then((response) => response.json())
-      .then((operations) => setOperations(operations))
+      .then((data) => setOperation(data)) // Fix the state variable name here (should be "operation" with a lowercase 'o')
       .catch((error) => console.log(error));
   }, []);
 
@@ -24,8 +24,8 @@ function Operations() { // Change the component name to start with an uppercase 
             </tr>
           </thead>
           <tbody>
-            {operations.map((operation, index) => { // Use a different variable name (e.g., operation)
-              return <Operation key={operation.id} operation={operation} index={index} />; // Update the variable name in the component
+            {operation.map((operation, index) => { 
+              return <Operation key={operation.id} operation={operation} index={index} />;
             })}
           </tbody>
         </table>
@@ -34,5 +34,5 @@ function Operations() { // Change the component name to start with an uppercase 
   );
 }
 
-export default Operations;
+export default Operations; 
 

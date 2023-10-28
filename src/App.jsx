@@ -1,7 +1,6 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import OperationShow from './Components/OperationShow';
+import  Operation from "./Components/Operation";
 import NavigationBar from './Components/Navigation';
 import HomePage from './Pages/Home'; 
 
@@ -11,7 +10,7 @@ const App = () => {
       <NavigationBar />
       <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/operations" component={OperationShow} />
+      <Route path="/operations" component={Operation} />
       </Routes>
     </Router>
   );
