@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import Operation from "../Components/Operation"; // Check the file path and letter casing
-const API = import.meta.env.VITE_BASE_URL;
+import Operation from "../Components/Operation"; 
 
 function Operations() { 
   const [operation, setOperation] = useState([]);
@@ -8,8 +7,7 @@ function Operations() {
   useEffect(() => {
     fetch(`${API}/operations`)
       .then((response) => response.json())
-      .then((data) => setOperation(data)) // Fix the state variable name here (should be "operation" with a lowercase 'o')
-      .catch((error) => console.log(error));
+      .then((data) => setOperation(data)) 
   }, []);
 
   return (
